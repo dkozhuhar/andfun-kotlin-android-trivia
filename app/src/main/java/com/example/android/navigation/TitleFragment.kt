@@ -21,12 +21,13 @@ class TitleFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         val binding: FragmentTitleBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_title, container, false)
+        // You can use this
+        binding.playButton.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_titleFragment_to_gameFragment))
+        /* or
         binding.playButton.setOnClickListener {
-            // You can use this
-            //findNavController().navigate(R.id.action_titleFragment_to_gameFragment)
-            // or
-            Navigation.createNavigateOnClickListener(R.id.action_titleFragment_to_gameFragment)
+            findNavController().navigate(R.id.action_titleFragment_to_gameFragment)
         }
+        */
         return binding.root
 
     }
