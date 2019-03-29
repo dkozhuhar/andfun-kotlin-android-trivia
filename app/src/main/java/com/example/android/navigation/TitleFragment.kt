@@ -7,8 +7,7 @@ import androidx.fragment.app.Fragment
 
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.Navigation
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
+import androidx.navigation.Navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.example.android.navigation.databinding.FragmentTitleBinding
 
@@ -22,7 +21,8 @@ class TitleFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
         val binding: FragmentTitleBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_title, container, false)
         // You can use this
-        binding.playButton.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_titleFragment_to_gameFragment))
+        binding.playButton.setOnClickListener(Navigation.createNavigateOnClickListener(TitleFragmentDirections.actionTitleFragmentToGameFragment()))
+        
         /* or
         binding.playButton.setOnClickListener {
             findNavController().navigate(R.id.action_titleFragment_to_gameFragment)
@@ -39,6 +39,6 @@ class TitleFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
-        return NavigationUI.onNavDestinationSelected(item, view!!.findNavController()) //|| super.onOptionsItemSelected(item)
+        return NavigationUI.onNavDestinationSelected(item, findNavController(view!!)) //|| super.onOptionsItemSelected(item)
     }
 }

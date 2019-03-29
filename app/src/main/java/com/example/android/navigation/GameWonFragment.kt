@@ -33,7 +33,7 @@ class GameWonFragment : Fragment() {
         // Inflate the layout for this fragment
         val binding: FragmentGameWonBinding = DataBindingUtil.inflate(
                 inflater, R.layout.fragment_game_won, container, false)
-        binding.nextMatchButton.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_gameWonFragment_to_gameFragment))
+        binding.nextMatchButton.setOnClickListener(Navigation.createNavigateOnClickListener(GameWonFragmentDirections.actionGameWonFragmentToGameFragment()))
         val args = GameWonFragmentArgs.fromBundle(arguments!!)
         Toast.makeText(context,"NumCorrect: ${args.numCorrect}/${args.numQuestions}",Toast.LENGTH_LONG).show()
         return binding.root
